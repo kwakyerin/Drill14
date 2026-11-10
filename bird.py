@@ -5,6 +5,7 @@ import game_framework
 class Bird:
     FRAME_DURATION = 0.1
     FRAME_SCALE = 120 / 184
+    image = None
     FRAMES = (
         (34, 1, 180, 144), (216, 2, 362, 143),
         (398, 12, 544, 142), (555, 17, 726, 139),
@@ -15,9 +16,11 @@ class Bird:
         (376, 395, 544, 483), (546, 370, 726, 484),
     )
 
-    def __init__(self):
-        self.image = load_image('bird_animation.png')
-        self.x, self.y = 400, 300
+    def __init__(self, x=400, y=300):
+        if Bird.image is None:
+            Bird.image = load_image('bird_animation.png')
+        self.image = Bird.image
+        self.x, self.y = x, y
         self.frame = 0
         self.elapsed_time = 0.0
 

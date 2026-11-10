@@ -18,8 +18,10 @@ def handle_events():
 def init():
     grass = Grass()
     game_world.add_oject(grass, 0)
-    bird = Bird()
-    game_world.add_oject(bird)
+    for y in (460, 300):
+        for x in (80, 240, 400, 560, 720):
+            bird = Bird(x, y)
+            game_world.add_oject(bird)
 
 
 def pause():
@@ -41,7 +43,6 @@ def render():
     clear_canvas()
     game_world.render()
     update_canvas()
-
 
 
 
