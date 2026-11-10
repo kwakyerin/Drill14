@@ -1,3 +1,5 @@
+import random
+
 from pico2d import *
 import game_world
 import game_framework
@@ -18,8 +20,10 @@ def handle_events():
 def init():
     grass = Grass()
     game_world.add_oject(grass, 0)
-    bird = Bird()
-    game_world.add_oject(bird)
+    start_positions = random.sample(range(60, 741), 10)
+    for x in start_positions:
+        bird = Bird(x, 300)
+        game_world.add_oject(bird)
 
 
 def pause():
@@ -41,6 +45,5 @@ def render():
     clear_canvas()
     game_world.render()
     update_canvas()
-
 
 
