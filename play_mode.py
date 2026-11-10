@@ -2,6 +2,7 @@ from pico2d import *
 import game_world
 import game_framework
 from grass import Grass
+from bird import Bird
 
 
 def handle_events():
@@ -17,6 +18,8 @@ def handle_events():
 def init():
     grass = Grass()
     game_world.add_oject(grass, 0)
+    bird = Bird()
+    game_world.add_oject(bird)
 
 
 def pause():
@@ -38,9 +41,6 @@ def render():
     clear_canvas()
     game_world.render()
     update_canvas()
-
-
-
 
 
 
